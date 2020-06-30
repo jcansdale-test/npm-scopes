@@ -31,6 +31,13 @@ jobs:
     - name: Remove the package
       run: rm package.json
 
+    - name: Create .npmrc without owner
+      run: |
+        cat > .npmrc <<- EOM
+        //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
+        registry=https://npm.pkg.github.com
+        EOM
+
     - name: Restore the package
       run: npm install ${{ env.PACKAGE_NAME }}@1.0.0-${{ github.sha }}
       
