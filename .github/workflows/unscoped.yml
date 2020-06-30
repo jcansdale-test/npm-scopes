@@ -33,9 +33,6 @@ jobs:
 
     - name: Restore the package
       run: npm install ${{ env.PACKAGE_NAME }}@1.0.0-${{ github.sha }}
-
-    - name: Restore @jcansdale/ghvs
-      run: npm install @jcansdale/ghvs
       
   scoped:
     env:
