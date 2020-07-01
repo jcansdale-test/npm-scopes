@@ -82,4 +82,4 @@ jobs:
         registry=https://npm.pkg.github.com/${{ matrix.PACKAGE_SCOPE }}
         EOM
     - name: Restore package from npmjs
-      run: npm install ${{ env.PACKAGE_NAME }}
+      run: npm install ${{ env.PACKAGE_NAME }} --registry=https://registry.npmjs.org
